@@ -31,12 +31,14 @@ VSCODE="${VSCODE} --reuse-window"
 
 ${VSCODE} --install-extension Dart-Code.flutter
 ${VSCODE} --install-extension ms-vscode.cpptools
+${VSCODE} --install-extension ms-vscode.cpptools-extension-pack
 ${VSCODE} --install-extension ms-vscode-remote.vscode-remote-extensionpack
 ${VSCODE} --install-extension ms-python.python
 ${VSCODE} --install-extension ms-python.vscode-pylance
 ${VSCODE} --install-extension ms-python.isort
 ${VSCODE} --install-extension dbaeumer.vscode-eslint
 ${VSCODE} --install-extension eamodio.gitlens
+${VSCODE} --install-extension GitHub.copilot
 
 ${VSCODE} "${@:-}"
 #${VSCODE} --add .
