@@ -39,12 +39,20 @@ ${VSCODE} --install-extension ms-python.isort
 ${VSCODE} --install-extension dbaeumer.vscode-eslint
 ${VSCODE} --install-extension eamodio.gitlens
 ${VSCODE} --install-extension GitHub.copilot
+${VSCODE} --install-extension vscjava.vscode-java-pack
 
 ${VSCODE} "${@:-}"
 #${VSCODE} --add .
 #${VSCODE} --goto vscode.sh
 
+
+# https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+#
+# ctrl + shift + P
 # opensshremotes.openEmptyWindow
+#
+# keyboard shortcuts: Ctrl + K, Ctrl + S
+#
 #
 # remote run example:
 # ./vscode.sh --folder-uri vscode-remote://ssh-remote+home_host/some/remote/directory
