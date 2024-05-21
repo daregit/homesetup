@@ -7,4 +7,4 @@ Welcome to the Home Setup repository! This repository contains scripts and confi
 To get started, clone the repository to your local machine using the following command:
 
 ```bash
-git clone git@github.com:daregit/homesetup.git daregit_homesetup
+git clone https://github.com/daregit/homesetup.git daregit_homesetup
