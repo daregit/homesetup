@@ -45,7 +45,9 @@ ${VSCODE} "${@:-}"
 #${VSCODE} --add .
 #${VSCODE} --goto vscode.sh
 
-
+# documentation:
+# https://code.visualstudio.com/docs
+#
 # https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 #
 # ctrl + shift + P
