@@ -61,3 +61,4 @@ ${VSCODE} "${@:-}"
 # telemetry -> off
 #
 # Ctrl+p or ctrl+e find a file
+# cttl+shift+d - debug
