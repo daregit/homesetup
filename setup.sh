@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e
+set -eu
+
+SCRIPTDIR=$(dirname "$(readlink -f "$0")")
 
 git config --global alias.co checkout
 git config --global alias.ci commit
@@ -25,3 +27,6 @@ git config --global fetch.prune true
 git config --global http.cookiefile ~/.gitcookies
 git config --global am.threeWay true
 git config --global rebase.autoStash true
+
+mkdir -p ~/bin
+ln -sf ${SCRIPTDIR}/bin/vscode.sh ~/bin/vscode.sh
