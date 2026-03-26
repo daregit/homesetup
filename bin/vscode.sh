@@ -4,6 +4,13 @@ set -eux
 
 USERDIR="$HOME/.config/Code"
 
+pkg=$(pacman -Qo "$(which code)" 2>/dev/null | awk '{print $5}')
+
+if [[ "$pkg" != "visual-studio-code-bin" ]]; then
+    echo "Not found $pkg"
+    exit -1
+fi
+
 #rm -rf ${USERDIR};exit
 
 mkdir -p ${USERDIR}/User/
