@@ -30,3 +30,5 @@ git config --global rebase.autoStash true
 
 mkdir -p ~/bin
 ln -sf ${SCRIPTDIR}/bin/vscode.sh ~/bin/vscode.sh
+
+${SCRIPTDIR}/helpers/setup_pikaur.sh
