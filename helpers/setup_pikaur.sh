@@ -1,6 +1,7 @@
 #!/bin/bash
-
 set -euo pipefail
+
+
 
 CONFIG="$HOME/.config/pikaur.conf"
 
@@ -11,18 +12,33 @@ if [[ ! -f "$CONFIG" ]]; then
 fi
 
 set_option() {
-    local key="$1"
-    local value="$2"
+    local section="$1"
+    local key="$2"
+    local value="$3"
+
+    if ! grep -q "^\[$section\]" "$CONFIG"; then
+        echo -e "\n[$section]" >> "$CONFIG"
+    fi
+
     if grep -q "^[[:space:]]*$key[[:space:]]*=" "$CONFIG"; then
-        sed -i "s/^[[:space:]]*$key[[:space:]]*=.*/$key = $value/" "$CONFIG"
+        sed -i "/^\[$section\]/,/^\[/ s/^[[:space:]]*$key[[:space:]]*=.*/$key = $value/" "$CONFIG"
     else
-        echo "$key = $value" >> "$CONFIG"
+        sed -i "/^\[$section\]/a $key = $value" "$CONFIG"
     fi
 }
 
-set_option "noedit" "yes"
-set_option "donteditbydefault" "yes"
-set_option "nodiff" "yes"
-set_option "noconfirm" "yes"
-set_option "diff" "no"
-set_option "edit" "no"
+set_option "review" "noedit" "yes"
+set_option "review" "donteditbydefault" "yes"
+set_option "review" "nodiff" "yes"
+set_option "review" "diff" "no"
+set_option "review" "edit" "no"
+
+set_option "sync" "noconfirm" "yes"
+
+#if ! id pikaur &>/dev/null; then
+#    sudo useradd -m -r -s /bin/false pikaur
+#fi
+#set_option "build" "dynamicusers" "never"
+#set_option "build" "UserId" $(id -u pikaur)
+#set_option "build" "GroupId" $(id -g pikaur)
+
